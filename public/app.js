@@ -1,1 +1,1 @@
-console.log("LOGGING: ", firebase)
+console.log("Now LOGGING: ", firebase)
