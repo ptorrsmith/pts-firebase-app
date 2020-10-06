@@ -19,3 +19,19 @@ signInBtn.onclick = () => auth.signInWithPopup(provider);  // return a promise
 
 signOutBtn.onclick = () => auth.signOut();  // return a promise
 // debugger
+
+
+auth.onAuthStateChanged(user => {
+	if (user) {
+		// signed-in
+		whenSignedIn.hidden = false;
+		whenSignedOut.hidden = true;
+		userDetails.innerHTML = `<h3>Kia ora ${user.displayName} :-)</h3> <p>User Id: ${user.uid}</p>`;
+	} else {
+		// not-signed-in
+		whenSignedIn.hidden = true;
+		whenSignedOut.hidden = false;
+		userDetails.innerHTML = '';
+	}
+
+});
